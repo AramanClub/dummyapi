@@ -49,7 +49,7 @@
                 }
             ],
             "response": {
-                "reservationId":1234567,
+                "reservationId":"1234567",
                 "balance":"250000"
             }
         }
@@ -57,7 +57,7 @@
     "3rdPartyPayment": [
         {
             "response": {
-                "transactionId":99123456789,
+                "transactionId":"99123456789",
                 "paid":"250000"
             }
         }
@@ -65,7 +65,7 @@
     "confirmPoolTickets" : [
         {
             "request": {
-                "transactionId":99123456789,
+                "transactionId":"99123456789",
                 "paid":"25000"
             },
             "response": {
@@ -75,7 +75,7 @@
         },
         {
             "request": {
-                "transactionId":89123456789,
+                "transactionId":"89123456789",
                 "paid":"0"
             },
             "response": {
