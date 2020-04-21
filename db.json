@@ -89,6 +89,7 @@
                         "date": "25-01-1399",
                         "timeid": 1,
                         "type": "adult",
+                        "price":140000,
                         "notes": ""
                     },
                     {
@@ -100,6 +101,7 @@
                         "date": "27-01-1399",
                         "timeid": 2,
                         "type": "adult",
+                        "price":110000,
                         "notes": ""
                     },
                     {
@@ -111,6 +113,7 @@
                         "date": "27-01-1399",
                         "timeid": 2,
                         "type": "child",
+                        "price":60000,
                         "notes": ""
                     }
                 ]
