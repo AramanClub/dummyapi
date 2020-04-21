@@ -32,61 +32,94 @@
             ]
         }
     ],
-    "requestPoolTickets": [
+    "request-pool-tickets": [
         {
-            "request": [
-                {
-                    "fname":"جمشید",
-                    "lname":"تبریزی",
-                    "email":"jamshid@example.com",
-                    "phone":"091212345678",
-                    "date":"25-01-1399",
-                    "timeid":1,
-                    "notes":""
-                },
-                {
-                    "fname":"مهشید",
-                    "lname":"کابلی",
-                    "email":"mahshid@example.com",
-                    "phone":"09128765432",
-                    "date":"27-01-1399",
-                    "timeid":2,
-                    "notes":""
-                }
-            ],
-            "response": {
+            "request": {
+                "tickets":[
+                    {
+                        "fname":"جمشید",
+                        "lname":"تبریزی",
+                        "email":"jamshid@example.com",
+                        "phone":"091212345678",
+                        "date":"25-01-1399",
+                        "type":"adult",
+                        "timeid":1,
+                        "notes":""
+                    },
+                    {
+                        "fname":"مهشید",
+                        "lname":"کابلی",
+                        "email":"mahshid@example.com",
+                        "phone":"09128765432",
+                        "date":"27-01-1399",
+                        "type":"adult",
+                        "timeid":2,
+                        "notes":""
+                    }
+                ],
+                "totalbalance":250000
+            },
+            "response_success": {
                 "reservationId":"1234567",
-                "balance":"250000"
+                "totalbalance":250000,
+                "__comment":"if response's balance is different than request's, client should abort the transaction. This should hopefully never happen."
+            },
+            "response_failed_1": {
+                "reservationId":"error",
+                "errorcode":2,
+                "errormsg":"سانس گنجایش ندارد"
             }
         }
     ],
-    "3rdPartyPayment": [
+    "confirm-pool-tickets" : [
         {
-            "response": {
+            "request": {
+                "reservationId":"1234567",
                 "transactionId":"99123456789",
                 "paid":"250000"
-            }
-        }
-    ],
-    "confirmPoolTickets" : [
-        {
-            "request": {
-                "transactionId":"99123456789",
-                "paid":"25000"
             },
-            "response": {
-                "status":"confirmed",
-                "ticketNo":"2203456"
-            }
-        },
-        {
-            "request": {
-                "transactionId":"89123456789",
-                "paid":"0"
+            "response_success": {
+                "tickets": [
+                    {
+                        "id": "2203456",
+                        "fname": "جمشید",
+                        "lname": "تبریزی",
+                        "email": "jamshid@example.com",
+                        "phone": "091212345678",
+                        "date": "25-01-1399",
+                        "timeid": 1,
+                        "type": "adult",
+                        "notes": ""
+                    },
+                    {
+                        "id": "2203457",
+                        "fname": "مهشید",
+                        "lname": "کابلی",
+                        "email": "mahshid@example.com",
+                        "phone": "09128765432",
+                        "date": "27-01-1399",
+                        "timeid": 2,
+                        "type": "adult",
+                        "notes": ""
+                    },
+                    {
+                        "id": "2203458",
+                        "fname": "مهتاب",
+                        "lname": "جمشیدی",
+                        "email": "mahshid@example.com",
+                        "phone": "09128765432",
+                        "date": "27-01-1399",
+                        "timeid": 2,
+                        "type": "child",
+                        "notes": ""
+                    }
+                ]
             },
-            "response": {
-                "status":"failed",
-                "ticketNo":"0"
+            "response_failed": {
+                "errorcode":1,
+                "errormsg":"خطا در صادر کردن بلیت ها",
+                "balance":-250000,
+                "__comment":"client should check for error code and return customer's remaining balance. This should hopefully never happen."
             }
         }
     ]
