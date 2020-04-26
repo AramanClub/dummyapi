@@ -1,12 +1,12 @@
 {
-    "poolSchedule": [
+    "get-pool-sessions": [
         {
             "request" : {
                 "date":"20-01-1399"
             },
             "response": [
                 {
-                    "id": 1,
+                    "sessionId": 1,
                     "title": "سانس آزاد آقایان",
                     "stime":"16:00",
                     "etime":"23:59",
@@ -18,7 +18,7 @@
                     "notes":""
                 },
                 {
-                    "id": 2,
+                    "sessionId": 2,
                     "title": "سانس آزاد بانوان",
                     "stime":"09:00",
                     "etime":"13:30",
@@ -43,7 +43,7 @@
                         "phone":"091212345678",
                         "date":"25-01-1399",
                         "type":"adult",
-                        "timeid":1,
+                        "sessionId":1,
                         "notes":""
                     },
                     {
@@ -53,21 +53,37 @@
                         "phone":"09128765432",
                         "date":"27-01-1399",
                         "type":"adult",
-                        "timeid":2,
+                        "sessionId":2,
+                        "notes":""
+                    },
+                    {
+                        "fname":"مهتاب",
+                        "lname":"جمشیدی",
+                        "email":"mahshid@example.com",
+                        "phone":"09128765432",
+                        "date":"27-01-1399",
+                        "type":"child",
+                        "sessionId":2,
                         "notes":""
                     }
                 ],
-                "totalbalance":250000
+                "totalbalance":310000
             },
             "response_success": {
                 "reservationId":"1234567",
-                "totalbalance":250000,
+                "totalbalance":310000,
                 "__comment":"if response's balance is different than request's, client should abort the transaction. This should hopefully never happen."
             },
             "response_failed_1": {
                 "reservationId":"error",
-                "errorcode":2,
-                "errormsg":"سانس گنجایش ندارد"
+                "errors" : [
+                    {
+                        "sessionId": 2,
+                        "errorcode":2,
+                        "errormsg":"سانس گنجایش ندارد"
+                    }
+                ],
+                "__comment":"note that even if only one of many tickets has 'errors' and cannot be booked, the entire request is denied."
             }
         }
     ],
@@ -87,7 +103,7 @@
                         "email": "jamshid@example.com",
                         "phone": "091212345678",
                         "date": "25-01-1399",
-                        "timeid": 1,
+                        "sessionId": 1,
                         "type": "adult",
                         "price":140000,
                         "notes": ""
@@ -99,7 +115,7 @@
                         "email": "mahshid@example.com",
                         "phone": "09128765432",
                         "date": "27-01-1399",
-                        "timeid": 2,
+                        "sessionId": 2,
                         "type": "adult",
                         "price":110000,
                         "notes": ""
@@ -111,7 +127,7 @@
                         "email": "mahshid@example.com",
                         "phone": "09128765432",
                         "date": "27-01-1399",
-                        "timeid": 2,
+                        "sessionId": 2,
                         "type": "child",
                         "price":60000,
                         "notes": ""
