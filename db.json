@@ -72,7 +72,7 @@
             "response_success": {
                 "reservationId":"1234567",
                 "totalbalance":310000,
-                "__comment":"if response's balance is different than request's, client should abort the transaction. This should hopefully never happen."
+                "__comment":"if response balance is different than request's, client should abort the transaction. This should hopefully never happen."
             },
             "response_failed_1": {
                 "reservationId":"error",
