@@ -141,5 +141,72 @@
                 "__comment":"client should check for error code and return customer's remaining balance. This should hopefully never happen."
             }
         }
+    ],
+    "get-pool-services": [
+        {
+            "request" : {
+                "genref":"0"
+            },
+            "response": [
+                {
+                    "serviceId": 1001,
+                    "title": "ماساژ کف نیم ساعته",
+                    "description":"ماساژ کف در حمام ترکی آرامان",
+                    "duration":"00:30",
+                    "price": {
+                        "member":100000,
+                        "nonmember":80000
+                    },
+                    "notes":""
+                },
+                {
+                    "serviceId": 1002,
+                    "title": "ماساژ کف یک ساعته",
+                    "description":"ماساژ کف در حمام ترکی آرامان",
+                    "duration":"01:00",
+                    "price": {
+                        "member":180000,
+                        "nonmember":160000
+                    },
+                    "notes":""
+                },
+                {
+                    "serviceId": 1002,
+                    "title": "ماساژ VIP",
+                    "description":"ماساژ با روغن‌های گیاهی در اسپای آرامان",
+                    "duration":"01:00",
+                    "price": {
+                        "member":250000,
+                        "nonmember":220000
+                    },
+                    "notes":"برای افراد دارای ناراحتی قبلی توصیه نمی‌شود"
+                }
+            ]
+        }
+    ],
+    "get-service-providers": [
+        {
+            "request" : {
+                "serviceId":1001,
+                "genref":"0"
+            },
+            "response": [
+                {
+                    "serviceProviderId": 51001,
+                    "fname": "کامران",
+                    "lname":"خوش‌ماساژ"
+                },
+                {
+                    "serviceProviderId": 51002,
+                    "fname": "فرامرز",
+                    "lname":"دلاک"
+                },
+                {
+                    "serviceProviderId": 51003,
+                    "fname": "بهنام",
+                    "lname":"مسوریان"
+                }
+            ]
+        }
     ]
 }
