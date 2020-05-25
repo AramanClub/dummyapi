@@ -2,7 +2,7 @@
     "get-pool-sessions": [
         {
             "request" : {
-                "date":"20-01-1399"
+                "date":"1399/01/20"
             },
             "response": [
                 {
@@ -37,45 +37,47 @@
             "request": {
                 "tickets":[
                     {
+                        "memberId":0,
                         "fname":"جمشید",
                         "lname":"تبریزی",
                         "email":"jamshid@example.com",
                         "phone":"091212345678",
-                        "date":"25-01-1399",
                         "type":"adult",
                         "sessionId":1,
+                        "date":"1399/01/25",
                         "notes":""
                     },
                     {
+                        "memberId":0,
                         "fname":"مهشید",
                         "lname":"کابلی",
                         "email":"mahshid@example.com",
                         "phone":"09128765432",
-                        "date":"27-01-1399",
                         "type":"adult",
                         "sessionId":2,
+                        "date":"1399/01/27",
                         "notes":""
                     },
                     {
+                        "memberId":0,
                         "fname":"مهتاب",
                         "lname":"جمشیدی",
                         "email":"mahshid@example.com",
                         "phone":"09128765432",
-                        "date":"27-01-1399",
                         "type":"child",
                         "sessionId":2,
+                        "date":"1399/01/27",
                         "notes":""
                     }
                 ],
                 "totalbalance":310000
             },
             "response_success": {
-                "reservationId":"1234567",
+                "tempReservationId":"1234567",
                 "totalbalance":310000,
                 "__comment":"if response balance is different than request's, client should abort the transaction. This should hopefully never happen."
             },
             "response_failed_1": {
-                "reservationId":"error",
                 "errors" : [
                     {
                         "sessionId": 2,
@@ -90,9 +92,9 @@
     "confirm-pool-tickets" : [
         {
             "request": {
-                "reservationId":"1234567",
-                "transactionId":"99123456789",
-                "paid":"250000"
+                "tempReservationId":"1234567",
+                "paymentTransactionId":"99123456789",
+                "paid":310000
             },
             "response_success": {
                 "tickets": [
@@ -102,9 +104,9 @@
                         "lname": "تبریزی",
                         "email": "jamshid@example.com",
                         "phone": "091212345678",
-                        "date": "25-01-1399",
-                        "sessionId": 1,
                         "type": "adult",
+                        "sessionId": 1,
+                        "date": "1399/01/25",
                         "price":140000,
                         "notes": ""
                     },
@@ -114,9 +116,9 @@
                         "lname": "کابلی",
                         "email": "mahshid@example.com",
                         "phone": "09128765432",
-                        "date": "27-01-1399",
-                        "sessionId": 2,
                         "type": "adult",
+                        "sessionId": 2,
+                        "date": "1399/01/27",
                         "price":110000,
                         "notes": ""
                     },
@@ -126,9 +128,9 @@
                         "lname": "جمشیدی",
                         "email": "mahshid@example.com",
                         "phone": "09128765432",
-                        "date": "27-01-1399",
-                        "sessionId": 2,
                         "type": "child",
+                        "sessionId": 2,
+                        "date": "1399/01/27",
                         "price":60000,
                         "notes": ""
                     }
@@ -137,7 +139,7 @@
             "response_failed": {
                 "errorcode":1,
                 "errormsg":"خطا در صادر کردن بلیت ها",
-                "balance":-250000,
+                "balance":-310000,
                 "__comment":"client should check for error code and return customer's remaining balance. This should hopefully never happen."
             }
         }
